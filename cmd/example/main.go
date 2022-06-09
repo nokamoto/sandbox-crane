@@ -38,7 +38,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("err Append: %s: %s", src, err)
 		}
-	
+
 		digest, err := img.Digest()
 		if err != nil {
 			log.Fatalf("err Append: %s: %s", src, err)
