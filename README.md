@@ -11,10 +11,30 @@
 make busybox
 ```
 
-Push busybox to [ghcr.io/nokamoto/sandbox-crane/busybox](https://github.com/nokamoto/sandbox-crane/pkgs/container/sandbox-crane%2Fbusybox).
+Push busybox to [ghcr.io/nokamoto/sandbox-crane/busybox](https://ghcr.io/nokamoto/sandbox-crane/busybox).
 
 ```bash
 SRC=ghcr.io/nokamoto/sandbox-crane/busybox:latest go run ./cmd/example
 ```
 
 Pull busybox:latest and print sha256.
+
+## crane.Append and crane.Push
+
+```bash
+make testdata.tar.gz
+```
+
+Make `testdata.tar.gz` from the `test` directory.
+
+```bash
+SRC=ghcr.io/nokamoto/sandbox-crane/busybox:latest NEW_TAG=ghcr.io/nokamoto/sandbox-crane/busybox:testdata go run ./cmd/example testdata.tar.gz
+```
+
+Append `testdata.tar.gz` to busybox:latest and push a new tag busybox:testdata.
+
+```bash
+make testdata
+```
+
+Run busybox:testdata and print a content of `test/testdata/a.txt`.
